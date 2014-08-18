@@ -9,7 +9,7 @@ from netaddr import *   # use pip install netaddr from the c:\python34\scripts d
 # http://pip.readthedocs.org/en/latest/installing.html
 
 __author__ = 'Abdul Karim El-Assaad'            # All rights to code reserved 2014
-__version__ = '(CCG) Version: 1.0 (22/7/2014)'  # Cisco Config Generator version
+__version__ = '(CCG) Version: 1.1 (18/8/2014)'  # Cisco Config Generator version
 
 
 #-----------------------------
@@ -1541,6 +1541,7 @@ class GenerateConfig(object):
                 print ("!--------------------------")
                 print ("! Global configuration")
                 print ("!--------------------------")
+                print ("hostname {}\n".format(device))
                 first_time = False
             profile_name = profiles
             print ("! + Config from profile: %s"%profile_name)
@@ -1826,7 +1827,7 @@ class GenerateConfig(object):
                 if database[device]["Interface"][interface]["PortChannelGroup"]:
                     value1 = int(database[device]["Interface"][interface]["PortChannelGroup"])
                     value2 = str(database[device]["Interface"][interface]["PortChannelMode"])
-                    print ("  channel-group mode %s %s"%(value1,value2))
+                    print ("  channel-group %s mode %s"%(value1,value2))
                 #----------------------------------------------------
                 # Check to see whether the port is activated or not
                 #----------------------------------------------------
@@ -1890,7 +1891,7 @@ class GenerateConfig(object):
                     print ("  no switchport")
                     value1 = int(database[device]["Interface"][interface]["PortChannelGroup"])
                     value2 = str(database[device]["Interface"][interface]["PortChannelMode"])
-                    print ("  channel-group mode %s %s"%(value1,value2))
+                    print ("  channel-group %s mode %s"%(value1,value2))
                 #----------------------------------------------------
                 # Check to see whether the port is activated or not
                 #----------------------------------------------------
@@ -2052,13 +2053,6 @@ def main(argv):
         print ("Unable to open: %s"% sys.argv[1])
         print ("Program aborted.")
         exit()
-
-
-#-- temp --
-#filename = "build.xlsx"
-#workbook = xlrd.open_workbook(filename)
-#ShowMenu()
-#-------
 
 
 if __name__ == '__main__':
