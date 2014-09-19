@@ -4,7 +4,7 @@ import sys
 from netaddr import *
 from operator import itemgetter
 
-__author__ = 'Abdul Karim El-Assaad'            
+__author__ = 'Abdul Karim El-Assaad'
 __version__ = '(CCG) Version: 2.0 BETA (19/9/2014)'  # Cisco Config Generator version
 
 
@@ -228,7 +228,7 @@ class Config(object):
                 prefix_list[device_name][prefix_name][0]["sequence"] = prefix_seq
                 prefix_list[device_name][prefix_name][0]["action"] = prefix_action
                 prefix_list[device_name][prefix_name][0]["entry"] = prefix_entry
-            elif not db.GetPrefixSeqNo(device_name,prefix_name,prefix_seq):
+            elif not self.GetPrefixSeqNo(device_name,prefix_name,prefix_seq):
                 list_no = len(prefix_list[device_name][prefix_name])
                 temp_db = {"sequence":"","action":"","entry":""}
                 prefix_list[device_name][prefix_name].append(temp_db)
