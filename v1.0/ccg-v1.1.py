@@ -24,6 +24,7 @@ positions = {}      # Store column heading and positions of spreadsheet file
 global filename     # The filename used to open the build spreadsheet
 
 
+
 #--------------------------------------------------------
 # Provide the ability to redirect output to a filename
 #--------------------------------------------------------
@@ -230,9 +231,9 @@ class ReadConfig(object):
             database[device_name]["Routes"][route]["Name"] = ""
             return
 
-    #-----------------------------------
+    #------------------------------------
     # Add a new prefix-list for a device
-    #----------------------------------
+    #------------------------------------
     def CreateNewPrefixList(self,device_name, prefix_name, sequence_number):
         #---------------------------------------------------------------------------------------------
         # If the device name has a space character at the beginning or end fix it and generate a log
@@ -1942,14 +1943,12 @@ class GenerateConfig(object):
             print ("********************************************")
             self.CreateGlobalConfig(device)
             self.CreateVlanConfig(device)
-            config = self.CreateVrfConfig(device)
+            self.CreateVrfConfig(device)
             self.CreateInterfaceConfig(device,"Physical")
             self.CreateInterfaceConfig(device,"Logical")
             self.CreateRoutingConfig(device)
             self.CreatePrefixListConfiguration(device)
             sys.stdout = console
-
-
 
 #---------------
 # Show the menu
