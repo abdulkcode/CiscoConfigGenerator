@@ -5,7 +5,7 @@ from netaddr import *
 from operator import itemgetter
 
 __author__ = 'Abdul Karim El-Assaad'
-__version__ = '(CCG) Version: 2.1 BETA (25/9/2014)'  # Cisco Config Generator version
+__version__ = '(CCG) Version: 2.2 (12/11/2014)'  # Cisco Config Generator version
 
 error_db = {}
 
